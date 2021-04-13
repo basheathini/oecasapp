@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "987190657199",
+    "project_id": "oecasapp-33ba9",
+    "storage_bucket": "oecasapp-33ba9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987190657199:android:a35f1d8e3b391e16fb945a",
+        "android_client_info": {
+          "package_name": "com.sterkd.oecasapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987190657199-g926ra0vlb166eb1r8s040331gomthgt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sterkd.oecasapp",
+            "certificate_hash": "5f616b96e2c2db921873d295d4ab43a3de981ba4"
+          }
+        },
+        {
+          "client_id": "987190657199-6986a0fjlnnvjjm19ld1fe90o3bff0jo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr62gXI-YXMFh8vjNgQX2QX2ptXbjBZg0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987190657199-6986a0fjlnnvjjm19ld1fe90o3bff0jo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "987190657199-ub9o43o8t5nbmt760500evv4qbjd0lsg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sterkd.oecasapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

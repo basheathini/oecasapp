@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:oecasapp/models/user.dart';
+import 'package:oecasapp/views/sign_in.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(OecasApp());
@@ -30,17 +33,26 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-          ],
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: User()),
+      ],
+      child: Consumer<User>(
+        builder: (context, user, _) => MaterialApp(
+          title: widget.title,
+          theme: ThemeData(
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+            primaryColor: Colors.white,
+            accentColor: Colors.blue,
+            fontFamily: 'Quicksand'
+          ),
+          debugShowCheckedModeBanner: false,
+          home: SignIn(),
+          routes: {
+            SignIn.routeName: (context) => SignIn()
+          },
         ),
-      ),// This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }

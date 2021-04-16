@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class User {
+class User with ChangeNotifier{
   String id;
   String name;
   String username;

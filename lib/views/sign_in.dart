@@ -35,12 +35,12 @@ class _SignInState extends State<SignIn> {
                     child: Text('Welcome to \nOecasApp', style: TextStyle(fontFamily: 'Anton', letterSpacing: 2, fontSize: 22), textAlign: TextAlign.center,),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 30.0, right:  30.0),
+                    padding: const EdgeInsets.only(left: 40.0, right:  40.0),
                     child: Form(
                         child: Column(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
+                              padding: const EdgeInsets.only(bottom: 8.0, left: 2, right: 2),
                               child: TextFormField(
                                 decoration: InputDecoration(
                                   labelText: 'Username',
@@ -71,7 +71,7 @@ class _SignInState extends State<SignIn> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(bottom: 10.0),
+                              padding: const EdgeInsets.only(bottom: 10.0, left: 2, right: 2),
                               child: TextFormField(
                                 decoration: InputDecoration(
                                   labelText: 'Password',

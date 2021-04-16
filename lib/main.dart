@@ -51,7 +51,8 @@ class _MyHomePageState extends State<MyHomePage> {
           home: SignIn(),
           routes: {
             SignIn.routeName: (context) => SignIn(),
-            LandingPage.routeName: (context) => LandingPage()
+            LandingPage.routeName: (context) => LandingPage(),
+            RegisterUser.routeName: (context) => RegisterUser()
           },
         ),
       ),

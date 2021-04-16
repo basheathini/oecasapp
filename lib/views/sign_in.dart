@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oecasapp/custom_views.dart';
 import '../widgets/button.dart';
 
 class SignIn extends StatefulWidget {
@@ -13,6 +14,10 @@ class _SignInState extends State<SignIn> {
   void initState() {
     // TODO: implement initState
     super.initState();
+  }
+
+  _login() async {
+    Navigator.of(context).pushReplacementNamed(LandingPage.routeName);
   }
 
   @override
@@ -100,7 +105,7 @@ class _SignInState extends State<SignIn> {
                                 obscureText: true,
                               ),
                             ),
-                            DesignButton(description: 'SIGN IN', isActive: true, function: () => {})
+                            DesignButton(description: 'SIGN IN', isActive: true, function: () => { _login() })
                           ],
                         )),
                   )

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oecasapp/custom_widgets.dart';
+import 'package:oecasapp/custom_views.dart';
 
 class LandingPage extends StatefulWidget {
   static const routeName = 'landing-page';
@@ -71,29 +72,8 @@ class _LandingPageState extends State<LandingPage> {
                       },
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 58.0, right: 58.0),
-                    child: Divider(
-                      color: Colors.black,
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
 
-                    },
-                    child: ListTile(
-                      leading: Icon(
-                        Icons.bar_chart_rounded,
-                        color: Colors.pink,
-                        size: 21,
-                      ),
-                      title:
-                          Text('Statistics', style: TextStyle(fontFamily: 'Anton' , letterSpacing: 1)),
-                      onTap: () {
-                        // Navigator.of(context).pushNamed(News.routeName);
-                      },
-                    ),
-                  ),
+
                   Padding(
                     padding: const EdgeInsets.only(left: 58.0, right: 58.0),
                     child: Divider(
@@ -114,6 +94,22 @@ class _LandingPageState extends State<LandingPage> {
                       ),
                       title:
                       Text('Register user', style: TextStyle(fontFamily: 'Anton', letterSpacing: 1)),
+                      onTap: () {
+                        Navigator.of(context).pushNamed(RegisterUser.routeName);
+                      },
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.bar_chart_rounded,
+                        color: Colors.grey,
+                        size: 21,
+                      ),
+                      title: Text('Statistics (coming soon)', style: TextStyle(fontFamily: 'Anton' , letterSpacing: 1, color: Colors.grey)),
                       onTap: () {
                         // Navigator.of(context).pushNamed(News.routeName);
                       },

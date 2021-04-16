@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:oecasapp/models/user.dart';
-import 'package:oecasapp/views/sign_in.dart';
+import 'custom_models.dart';
+import 'custom_views.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -12,6 +12,7 @@ class OecasApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'OecasApp',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -49,7 +50,8 @@ class _MyHomePageState extends State<MyHomePage> {
           debugShowCheckedModeBanner: false,
           home: SignIn(),
           routes: {
-            SignIn.routeName: (context) => SignIn()
+            SignIn.routeName: (context) => SignIn(),
+            LandingPage.routeName: (context) => LandingPage()
           },
         ),
       ),

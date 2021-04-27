@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 class DesignButton extends StatefulWidget {
+
   final String description;
   final Function function;
   final bool isActive;
@@ -23,16 +24,16 @@ class _DesignButtonState extends State<DesignButton> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5),
             ),
-            elevation: 10,
+            elevation: 5,
             color: widget.isActive ? Theme.of(context).accentColor : Colors.grey,
-            textColor: Theme.of(context).primaryColor,
+            textColor: Colors.white,
             splashColor: Theme.of(context).primaryColor,
             child: Text(
               widget.description,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                  fontFamily: 'Quicksand', fontSize: 12, letterSpacing: 1, fontWeight: FontWeight.bold, color: widget.isActive ? Theme.of(context).primaryColor : Colors.black26),
+                  fontFamily: 'Quicksand', fontSize: 12, letterSpacing: 1, fontWeight: FontWeight.bold, color: widget.isActive ? Colors.white : Colors.black26),
             ),
             onPressed: widget.isActive ? widget.function : () {}
         )

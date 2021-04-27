@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:oecasapp/constants/CrudModel.dart';
+import 'package:localstorage/localstorage.dart';
+import 'package:oecasapp/custom_models.dart';
 
-class User with ChangeNotifier{
+class User {
   String id;
   String name;
-  String username;
   String type;
   String mobileNumber;
   String password;
@@ -11,7 +13,6 @@ class User with ChangeNotifier{
   User(
       {@required this.id,
       @required this.name,
-      @required this.username,
       @required this.type,
       @required this.mobileNumber,
       @required this.password});
@@ -20,9 +21,52 @@ class User with ChangeNotifier{
     return new User(
         id: json['id'],
         name: json['name'],
-        username: json['username'],
         type: json['type'],
         mobileNumber: json['mobileNumber'],
-        password: json['mobileNumber']);
+        password: json['password']);
+  }
+  toJson() {
+    return {
+      "id" : id,
+      "name" : name,
+      "type" : type,
+      "mobileNumber" : mobileNumber,
+      "password" : password,
+    };
+  }
+}
+
+class Users with ChangeNotifier {
+  CrudModel crudModel = new CrudModel();
+  List<User> users;
+  User user;
+
+  Users({this.user});
+
+  User get userData {
+    return user;
+  }
+
+  Future<void> addUser(User user) async {
+    final LocalStorage storage = new LocalStorage('OecasUsers');
+    users = storage.getItem('OecasUsers') ?? [];
+    print('-------------------------------${users.length}');
+
+    users.forEach((element) {
+      crudModel.addUser(element);
+    });
+    // users.add(user);
+    // storage.setItem('OecasUsers', users);
+    //
+    // users = storage.getItem('OecasUsers') ?? [];
+    // print('-------------------------------${users.length}');
+    //crudModel.addUser(user);
+    notifyListeners();
+  }
+
+  Future<void> getUser(User user) async {
+    print(user.mobileNumber);
+    user = user;
+    notifyListeners();
   }
 }

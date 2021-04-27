@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:oecasapp/custom_widgets.dart';
 import 'package:oecasapp/custom_views.dart';
+import 'package:oecasapp/models/user.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
+import 'package:provider/provider.dart';
+
 
 class LandingPage extends StatefulWidget {
   static const routeName = 'landing-page';
@@ -9,8 +14,20 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
+
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
+    var data = Provider.of<Users>(context, listen: true).userData;
+    print('------ data2 ${data}');
     var deviceSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -99,6 +116,14 @@ class _LandingPageState extends State<LandingPage> {
                       },
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 58.0, right: 58.0),
+                    child: Divider(
+                      color: Colors.black,
+                    ),
+                  ),
+
+
                   GestureDetector(
                     onTap: () {
 

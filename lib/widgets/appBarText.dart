@@ -11,6 +11,6 @@ class AppBarText extends StatefulWidget {
 class _AppBarTextState extends State<AppBarText> {
   @override
   Widget build(BuildContext context) {
-    return Text( widget.text, style: TextStyle(fontFamily: 'Anton', fontSize: 17, fontWeight: FontWeight.w900));
+    return Text( widget.text, style: TextStyle(fontFamily: 'Anton', fontSize: 17, fontWeight: FontWeight.w900, color: Colors.black));
   }
 }

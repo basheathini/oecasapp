@@ -15,19 +15,29 @@ class LandingPage extends StatefulWidget {
 
 class _LandingPageState extends State<LandingPage> {
 
-
+  User user;
+  _onLoad()  async {
+    await SharedPreferences.getInstance().then((shared){
+      bool containsUserData = shared.containsKey('userData');
+      if(containsUserData) {
+        var _sharedPreferences = json.decode(shared.getString('userData')) as Map<String, Object>;
+        user = User(id: _sharedPreferences['id'], name: _sharedPreferences['name'], type: _sharedPreferences['type'], mobileNumber: _sharedPreferences['mobileNumber'], password: _sharedPreferences['password']);
+        setState(() {});
+        Provider.of<Users>(context).getUser(user);
+      }
+    });
+  }
 
   @override
   void initState() {
     // TODO: implement initState
+    _onLoad();
     super.initState();
   }
 
 
   @override
   Widget build(BuildContext context) {
-    var data = Provider.of<Users>(context, listen: true).userData;
-    print('------ data2 ${data}');
     var deviceSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -89,15 +99,13 @@ class _LandingPageState extends State<LandingPage> {
                       },
                     ),
                   ),
-
-
-                  Padding(
+                  user != null && user.type == 'administrator' ? Padding(
                     padding: const EdgeInsets.only(left: 58.0, right: 58.0),
                     child: Divider(
                       color: Colors.black,
                     ),
-                  ),
-                  InkWell(
+                  ) : Container(),
+                  user != null && user.type == 'administrator' ? InkWell(
                     customBorder: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)
                     ),
@@ -115,15 +123,13 @@ class _LandingPageState extends State<LandingPage> {
                         Navigator.of(context).pushNamed(RegisterUser.routeName);
                       },
                     ),
-                  ),
+                  ) : Container(),
                   Padding(
                     padding: const EdgeInsets.only(left: 58.0, right: 58.0),
                     child: Divider(
                       color: Colors.black,
                     ),
                   ),
-
-
                   GestureDetector(
                     onTap: () {
 
@@ -137,6 +143,31 @@ class _LandingPageState extends State<LandingPage> {
                       title: Text('Statistics (coming soon)', style: TextStyle(fontFamily: 'Anton' , letterSpacing: 1, color: Colors.grey)),
                       onTap: () {
                         // Navigator.of(context).pushNamed(News.routeName);
+                      },
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 58.0, right: 58.0),
+                    child: Divider(
+                      color: Colors.black,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.remove_circle_outline,
+                        color: Colors.pink,
+                        size: 21,
+                      ),
+                      title: Text('Sign out', style: TextStyle(fontFamily: 'Anton' , letterSpacing: 1, color: Colors.black)),
+                      onTap: () async {
+                        await Provider.of<Users>(context).clearShared().then((value) =>
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => SignIn()))
+                        );
                       },
                     ),
                   ),

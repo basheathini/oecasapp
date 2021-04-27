@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:oecasapp/constants/CrudModel.dart';
 import 'package:localstorage/localstorage.dart';
 import 'package:oecasapp/custom_models.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class User {
   String id;
@@ -68,5 +69,12 @@ class Users with ChangeNotifier {
     print(user.mobileNumber);
     user = user;
     notifyListeners();
+  }
+
+  Future<bool> clearShared() async{
+    SharedPreferences _sharedPreferences = await SharedPreferences.getInstance();
+    _sharedPreferences.clear();
+    notifyListeners();
+    return true;
   }
 }

@@ -99,15 +99,10 @@ class _LandingPageState extends State<LandingPage> {
                       },
                     ),
                   ),
-                  user != null && user.type == 'administrator' ? Padding(
-                    padding: const EdgeInsets.only(left: 58.0, right: 58.0),
-                    child: Divider(
-                      color: Colors.black,
-                    ),
-                  ) : Container(),
-                  user != null && user.type == 'administrator' ? InkWell(
+
+                  InkWell(
                     customBorder: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
+                        borderRadius: BorderRadius.circular(10)
                     ),
                     onTap: () {},
                     splashColor: Colors.pink,
@@ -123,7 +118,32 @@ class _LandingPageState extends State<LandingPage> {
                         Navigator.of(context).pushNamed(RegisterUser.routeName);
                       },
                     ),
-                  ) : Container(),
+                  ),
+                  // user != null && user.type == 'administrator' ? Padding(
+                  //   padding: const EdgeInsets.only(left: 58.0, right: 58.0),
+                  //   child: Divider(
+                  //     color: Colors.black,
+                  //   ),
+                  // ) : Container(),
+                  // user != null && user.type == 'administrator' ? InkWell(
+                  //   customBorder: RoundedRectangleBorder(
+                  //     borderRadius: BorderRadius.circular(10)
+                  //   ),
+                  //   onTap: () {},
+                  //   splashColor: Colors.pink,
+                  //   child: ListTile(
+                  //     leading: Icon(
+                  //       Icons.person_add_alt_1_outlined,
+                  //       color: Colors.pink,
+                  //       size: 21,
+                  //     ),
+                  //     title:
+                  //     Text('Register user', style: TextStyle(fontFamily: 'Anton', letterSpacing: 1)),
+                  //     onTap: () {
+                  //       Navigator.of(context).pushNamed(RegisterUser.routeName);
+                  //     },
+                  //   ),
+                  // ) : Container(),
                   Padding(
                     padding: const EdgeInsets.only(left: 58.0, right: 58.0),
                     child: Divider(
@@ -147,30 +167,30 @@ class _LandingPageState extends State<LandingPage> {
                     ),
                   ),
 
-                  Padding(
-                    padding: const EdgeInsets.only(left: 58.0, right: 58.0),
-                    child: Divider(
-                      color: Colors.black,
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-
-                    },
-                    child: ListTile(
-                      leading: Icon(
-                        Icons.remove_circle_outline,
-                        color: Colors.pink,
-                        size: 21,
-                      ),
-                      title: Text('Sign out', style: TextStyle(fontFamily: 'Anton' , letterSpacing: 1, color: Colors.black)),
-                      onTap: () async {
-                        await Provider.of<Users>(context).clearShared().then((value) =>
-                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => SignIn()))
-                        );
-                      },
-                    ),
-                  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.only(left: 58.0, right: 58.0),
+                  //   child: Divider(
+                  //     color: Colors.black,
+                  //   ),
+                  // ),
+                  // GestureDetector(
+                  //   onTap: () {
+                  //
+                  //   },
+                  //   child: ListTile(
+                  //     leading: Icon(
+                  //       Icons.remove_circle_outline,
+                  //       color: Colors.pink,
+                  //       size: 21,
+                  //     ),
+                  //     title: Text('Sign out', style: TextStyle(fontFamily: 'Anton' , letterSpacing: 1, color: Colors.black)),
+                  //     onTap: () async {
+                  //       await Provider.of<Users>(context).clearShared().then((value) =>
+                  //           Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => SignIn()))
+                  //       );
+                  //     },
+                  //   ),
+                  // ),
                 ],
               ),
             ),

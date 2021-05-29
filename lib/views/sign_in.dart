@@ -34,36 +34,37 @@ class _SignInState extends State<SignIn> {
   }
 
   _login() async {
-    setState(() { isLoading = true; });
-    var isValid = _form.currentState.validate();
-    if (!isValid) {
-      return null;
-    } else {
-      userExists = await _crudModel.getUser(_numberController.text);
-      if( userExists.mobileNumber == _numberController.text && userExists.password == _passwordController.text){
-        Provider.of<Users>(context).getUser(userExists);
-        setState(() { isLoading = false; });
-        _function.savePreferences(userExists).then((value) => {
-          Navigator.of(context).pushReplacementNamed(LandingPage.routeName)
-        });
-      } else {
-        Flushbar(
-          backgroundGradient: LinearGradient(colors: [Colors.red, Colors.red]),
-          backgroundColor: Colors.red,
-          messageText: Text(
-            'Incorrect credentials.',
-            style: TextStyle(fontFamily: 'Quicksand', color: Colors.white),
-            textAlign: TextAlign.center,
-          ),
-          duration: Duration(seconds: 5),
-          flushbarStyle: FlushbarStyle.FLOATING,
-          borderRadius: 5,
-          margin: EdgeInsets.all(15),
-          padding: EdgeInsets.all(15),
-          flushbarPosition: FlushbarPosition.TOP,
-        ).show(context).then((value) => {setState(() { isLoading = false; })});
-      }
-    }
+    Navigator.of(context).pushReplacementNamed(LandingPage.routeName);
+    //setState(() { isLoading = true; });
+    // var isValid = _form.currentState.validate();
+    // if (!isValid) {
+    //   return null;
+    // } else {
+    //   userExists = await _crudModel.getUser(_numberController.text);
+    //   if( userExists.mobileNumber == _numberController.text && userExists.password == _passwordController.text){
+    //     Provider.of<Users>(context).getUser(userExists);
+    //     setState(() { isLoading = false; });
+    //     _function.savePreferences(userExists).then((value) => {
+    //       Navigator.of(context).pushReplacementNamed(LandingPage.routeName)
+    //     });
+    //   } else {
+    //     Flushbar(
+    //       backgroundGradient: LinearGradient(colors: [Colors.red, Colors.red]),
+    //       backgroundColor: Colors.red,
+    //       messageText: Text(
+    //         'Incorrect credentials.',
+    //         style: TextStyle(fontFamily: 'Quicksand', color: Colors.white),
+    //         textAlign: TextAlign.center,
+    //       ),
+    //       duration: Duration(seconds: 5),
+    //       flushbarStyle: FlushbarStyle.FLOATING,
+    //       borderRadius: 5,
+    //       margin: EdgeInsets.all(15),
+    //       padding: EdgeInsets.all(15),
+    //       flushbarPosition: FlushbarPosition.TOP,
+    //     ).show(context).then((value) => {setState(() { isLoading = false; })});
+    //   }
+    // }
   }
 
   @override

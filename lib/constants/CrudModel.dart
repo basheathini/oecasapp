@@ -17,7 +17,7 @@ class CrudModel {
       if(onValue.data == null){
         user = null;
       }else{
-        user = User.fromJson(onValue.data);
+        user = User.fromJson(onValue.data());
       }
       return user;
     });

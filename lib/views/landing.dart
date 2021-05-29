@@ -28,6 +28,12 @@ class _LandingPageState extends State<LandingPage> {
     });
   }
 
+  _logOut() async {
+    await Provider.of<Users>(context).clearShared().then((value) =>
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => SignIn()))
+    );
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -72,7 +78,7 @@ class _LandingPageState extends State<LandingPage> {
                       title:
                           Text('Data Entry', style: TextStyle(fontFamily: 'Anton', letterSpacing: 1)),
                       onTap: () {
-                        // Navigator.of(context).pushNamed(News.routeName);
+                        Navigator.of(context).pushNamed(Questionnaire.routeName);
                       },
                     ),
                   ),
@@ -154,8 +160,8 @@ class _LandingPageState extends State<LandingPage> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {
-
+                    onTap: () async {
+                      _logOut();
                     },
                     child: ListTile(
                       leading: Icon(
@@ -165,9 +171,7 @@ class _LandingPageState extends State<LandingPage> {
                       ),
                       title: Text('Sign out', style: TextStyle(fontFamily: 'Anton' , letterSpacing: 1, color: Colors.black)),
                       onTap: () async {
-                        await Provider.of<Users>(context).clearShared().then((value) =>
-                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => SignIn()))
-                        );
+                        _logOut();
                       },
                     ),
                   ),

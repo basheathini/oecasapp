@@ -37,7 +37,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   User user;
-
   _onLoad()  async {
     await SharedPreferences.getInstance().then((shared){
       bool containsUserData = shared.containsKey('userData');
@@ -78,7 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
           routes: {
             SignIn.routeName: (context) => SignIn(),
             LandingPage.routeName: (context) => LandingPage(),
-            RegisterUser.routeName: (context) => RegisterUser()
+            RegisterUser.routeName: (context) => RegisterUser(),
+            Questionnaire.routeName: (context) => Questionnaire()
           },
         ),
       ),
